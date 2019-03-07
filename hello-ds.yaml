@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-deployment
+  labels:
+    app: hello-d
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-d
+  template:
+    metadata:
+      labels:
+        app: hello-d
+    spec:
+    spec:
+        containers:
+        - name: myapp-container
+          image: busybox
+          command: ['sh', '-c', 'echo Hello Kubernetes! I am updated!! && sleep 3600']

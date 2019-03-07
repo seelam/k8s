@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-rs
+  labels:
+    app: myapp-rs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: myapp-rs
+  template:
+    metadata:
+      labels:
+        tier: myapp-rs
+    spec:
+        containers:
+        - name: myapp-container
+          image: busybox
+          command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
