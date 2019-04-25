@@ -1,14 +1,13 @@
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  name: minio-pv-claim
+  name: katib-mysql-volume
   labels:
     type: local
 spec:
-  storageClassName: manual
   capacity:
     storage: 10Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/data2"
+    path: "/mnt/datakatib"
